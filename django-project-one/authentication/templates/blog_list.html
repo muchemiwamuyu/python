@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="text-3xl font-bold mb-6">Blog Posts</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        {% for blog in blogs %}
+            <div class="border p-4 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-2">{{ blog.title }}</h2>
+                <img src="{{blog.image.url}}" alt="Blog Image" class="image" width="300"></a>
+
+                <p class="text-gray-700 mb-4">{{ blog.content }}</p>
+                <p class="text-sm text-gray-600">Published: {{ blog.is_published }}</p>
+                <p class="text-sm text-gray-600">By {{ blog.author }} on {{ blog.date_posted }}</p>
+                <p class="text-sm text-gray-600">Last Updated: {{ blog.date_posted }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
